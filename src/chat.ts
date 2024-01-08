@@ -43,6 +43,11 @@ export class Chat {
     const res = await this.chatAPI.sendMessage(prompt);
 
     console.timeEnd('code-review cost');
+
+    if (res.text === 'NO_COMMENT') {
+      return '';
+    }
+
     return res.text;
   };
 }
